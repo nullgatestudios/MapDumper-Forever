@@ -1,0 +1,7 @@
+## Interface: 16001
+## Title: MapDumper
+## Notes: Crawls and exports UiMapIDs, AreaIDs, and names to SavedVariables.
+## SavedVariables: MapDumperDB
+## Version: 1.0
+
+MapDumper.lua
