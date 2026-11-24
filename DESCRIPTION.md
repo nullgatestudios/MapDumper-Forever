@@ -20,11 +20,32 @@ Use it when you're building quest trackers, coordinate tools, waypoints or your 
 2. Type `/dumpmaps` in chat.
 3. Press **Ctrl+C** to copy the JSON from the export window.
 
+If something doesn't work, type `/dumpmaps check`. It opens a bug report window to copy into the report form on our website.
+
 To use the SavedVariables copy instead, type `/reload`, then open:
 
 ```
 World of Warcraft\_forever_\WTF\Account\<ACCOUNT_NAME>\SavedVariables\MapDumper.lua
 ```
+
+---
+
+## Supported Languages
+
+All 10 languages the game client runs in:
+
+- English
+- Deutsch (German)
+- Español (Spanish)
+- Français (French)
+- Italiano (Italian)
+- Português do Brasil (Brazilian Portuguese)
+- Русский (Russian)
+- 한국어 (Korean)
+- 简体中文 (Simplified Chinese)
+- 繁體中文 (Traditional Chinese)
+
+The addon uses your game's language automatically. The translations were made with machine assistance, so some wording may not be quite right. Corrections are welcome: send a message here on CurseForge or [report on our website](https://nullgatestudios.com/report?addon=mapdumper).
 
 ---
 

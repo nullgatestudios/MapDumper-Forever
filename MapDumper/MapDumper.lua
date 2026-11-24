@@ -1,3 +1,6 @@
+local _, ns = ...
+local L = ns.L
+
 -- Initialize the global table if it doesn't exist
 MapDumperDB = MapDumperDB or {
     UiMaps = {},
@@ -73,7 +76,7 @@ exportFrame:Hide()
 -- Title
 local title = exportFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlightLarge")
 title:SetPoint("TOP", 0, -16)
-title:SetText("MapDumper Export (Press Ctrl+C to Copy)")
+title:SetText(L["MapDumper Export (Press Ctrl+C to Copy)"])
 
 -- Scroll Frame & EditBox container
 local scrollFrame = CreateFrame("ScrollFrame", "MapDumperScrollFrame", exportFrame, "UIPanelScrollFrameTemplate")
@@ -92,7 +95,7 @@ scrollFrame:SetScrollChild(editBox)
 local closeBtn = CreateFrame("Button", nil, exportFrame, "GameMenuButtonTemplate")
 closeBtn:SetSize(110, 26)
 closeBtn:SetPoint("BOTTOM", 0, 16)
-closeBtn:SetText("Close")
+closeBtn:SetText(L["Close"])
 closeBtn:SetScript("OnClick", function() exportFrame:Hide() end)
 
 local function ShowExportWindow(text)
@@ -103,7 +106,7 @@ local function ShowExportWindow(text)
 end
 
 local function RunDump()
-    print("|cFF00FF00[MapDumper]|r Crawling map and area data...")
+    print("|cFF00FF00[MapDumper]|r " .. L["Crawling map and area data..."])
 
     MapDumperDB.UiMaps = {}
     MapDumperDB.AreaIDs = {}
@@ -142,7 +145,7 @@ local function RunDump()
         end
     end
 
-    print(string.format("|cFF00FF00[MapDumper]|r Dumped %d UiMaps and %d AreaIDs.", mapCount, areaCount))
+    print("|cFF00FF00[MapDumper]|r " .. string.format(L["Dumped %d UiMaps and %d AreaIDs."], mapCount, areaCount))
 
     -- Format JSON and open copy-paste window
     local payload = SerializeDumpToJSON(MapDumperDB)
@@ -151,13 +154,17 @@ end
 
 -- Slash command trigger
 SLASH_MAPDUMPER1 = "/dumpmaps"
-SlashCmdList["MAPDUMPER"] = function()
-    RunDump()
+SlashCmdList["MAPDUMPER"] = function(msg)
+    if (msg or ""):lower():match("^%s*check") then
+        ns.Check.Run()
+    else
+        RunDump()
+    end
 end
 
 -- Login notification
 local frame = CreateFrame("Frame")
 frame:RegisterEvent("PLAYER_LOGIN")
 frame:SetScript("OnEvent", function()
-    print("|cFF00FF00[MapDumper]|r Loaded. Type |cFFFFFF00/dumpmaps|r to export maps.")
+    print("|cFF00FF00[MapDumper]|r " .. string.format(L["Loaded. Type %s to export maps, or %s for a bug report."], "|cFFFFFF00/dumpmaps|r", "|cFFFFFF00/dumpmaps check|r"))
 end)

@@ -2,7 +2,19 @@
 ## Title: MapDumper
 ## Notes: Crawls and exports UiMapIDs, AreaIDs, and names to SavedVariables.
 ## SavedVariables: MapDumperDB
-## Version: 1.0
+## Version: 1.1
 ## X-Curse-Project-ID: 1716341
 
+Locale.lua
+Locales\deDE.lua
+Locales\esES.lua
+Locales\frFR.lua
+Locales\itIT.lua
+Locales\koKR.lua
+Locales\ptBR.lua
+Locales\ruRU.lua
+Locales\zhCN.lua
+Locales\zhTW.lua
+NullgateReport.lua
+Check.lua
 MapDumper.lua
